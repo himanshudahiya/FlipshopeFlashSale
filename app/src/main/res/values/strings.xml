@@ -1,0 +1,110 @@
+<resources>
+    <string name="app_name">Flipshope</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="facebook_app_id">732059050303287</string>
+    <string name="fb_login_protocol_scheme">fb732059050303287</string>
+    <dimen name="text_size_small">14.0sp</dimen>
+    <dimen name="text_size_medium">16.0sp</dimen>
+
+    <!-- ActionBar color strip -->
+    <dimen name="colorstrip">5dp</dimen>
+
+    <string name="about_us">
+        <![CDATA[
+        <p>Have you ever missed buying flash sale products or lightning deals on shopping sites? Well, it happens to every person because those type of instant deals requires something beyond the human clicks. Every flash sale usually come in a sale with less than 10,000 units and a minimum of 5 lac people will try to buy the product. So out of 50 people, only one person can get the mobile. That is why we made this Auto-Buy app to help you people and we are the one-stop solution for all flash sale products, lightning deals and more. </p>
+        <p><b>Sites where it will work:</b></p>
+        <ul style="padding-left: 100px;">
+            <li style="margin: 5px 0;">Amazon</li>
+            <li style="margin: 5px 0;">Flipkart</li>
+            <li style="margin: 5px 0;">Mi.com/in</li>
+            <li style="margin: 5px 0;">Oneplus.in</li>
+        </ul>
+        <p>and 20 other sites where flash sales or instant deals are available.</p>
+                <p><b>We provide the Auto-buy on:</b></p>
+                <ul style="padding-left: 100px;">
+            <li style="margin: 5px 0;">Mobile flash sales</li>
+            <li style="margin: 5px 0;">TV flash sales</li>
+            <li style="margin: 5px 0;">1Rs flash sales</li>
+            <li style="margin: 5px 0;">Amazon lightning & Prime deals</li>
+            <li style="margin: 5px 0;">Flipkart instant deals</li>
+        </ul>
+<p>for any special requests, you can reach out to us if the deal requires auto-buy we will provide the same on our app.</p>
+<p><b>App Features:</b></p>
+            <li style="margin: 5px 0;">Updated auto-buy scripts on every sale</li>
+            <li style="margin: 5px 0;">Custom notifications about instant deals</li>
+            <li style="margin: 5px 0;">Flash sale products reminder</li>
+            <li style="margin: 5px 0;">Shopping site may go down but our app won't :D</li>
+
+        ]]>
+    </string>
+
+
+    <string name="faq">
+        <![CDATA[
+        <p><b>How many times do I need to log in?</b></p>
+        <p>Well, don\'t get confused the main login is for the app. Product login can be done on those particular sites. Login is must required on shopping sites.</p>
+        <p><b>Can this app buy products automatically or do we need to open this on sale time?</b></p>
+        <p>At the moment we require your presence to provide auto-buy feature so you must open the app on sale time. Maybe in the future, we will try to do everything automatically.</p>
+        <p><b>Can I use this app to buy all types of upcoming deals?</b></p>
+        <p>Currently, we limited the auto-buy feature to a set of flash sale products. You can check the all available products and sites from the main page.</p>
+        <p><b>I haven\'t got any pop-up on the product page</b></p>
+        <p>If you follow every step as mentioned then you will get the pop-up for sure but there can be few exceptional cases. That means you might have opened the wrong product or the auto-buy feature isn\'t available on that product.</p>
+]]>
+    </string>
+
+    <string name="how_to_buy">
+        <![CDATA[
+        <ul>
+        <li>Visit the product listings page from the site or from your wishlist.</li>
+        <li>Just click on Buy now on the product whichever you want to buy.</li>
+<br>
+        <img src="ee"></img>
+        <br>
+        <li>Now you will be redirected to that particular shopping site.</li>
+        <li>It\'s highly recommended that you must log in to the shopping site else you can\'t buy the product on time.</li>
+        <li>After the successful login, you will notice a pop-up on the product page. This also comes with the sale timer just to keep you updated.</li>
+        <br>
+        <img src="ff"></img>
+        <br>
+        <li>Our script will start working 3 mins before the sale and you can check the same on the product page.</li>
+        <li>At that time of sale, it will add the product to cart without you have to do anything</li>
+        <br>
+        <img src="gg"></img>
+        <br>
+        <li>Select the address details and complete the payment to buy the product.</li>
+        <br>
+        <img src="hh"></img>
+        <br>
+        <li>Hola!! from the product page to successful buying in less than a minute</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="how_to_use">
+        <![CDATA[
+        <h3>How to use the Auto-Buy app</h3>
+        <p>If you are familiar with the flash sales or instant deals then you must have noticed that sometimes shopping go down few minutes before or after the sale. This happens because of huge hits on the deal page which makes the user unable to access the sale page on time. We know this problem very well so we designed the app in a similar way to give the best experience to our users.</p>
+        <p><b>Follow below steps for the app guidelines <font color="red">(RECOMMENDED)</font></b></p>
+        <p>As soon as you open Auto-Buy app you will notice a login page. Login or sign-up to create a new account, we will use your account details to send you notifications. You can turn-off the notifications or customize them from the settings page.</p>
+        <p>After a successful login, you will get a pop-up to select the site. Click on the site from where you are planning to buy the product.</p>
+        <br>
+        <img src="aa" width="50" height="50"></img>
+        <br>
+        <p>Now you will be presented with the list of products or deals from that particular shopping site.</p>
+        <br>
+        <img src="bb"></img>
+        <br>
+        <p>Simply choose the products and keep them on the wishlist. This is very important and we recommend every user to pre-select the products on the wishlist.</p>
+        <br>
+        <img src="cc"></img>
+        <br>
+        <p>This wishlist can be accessed from the app home page. The main reason for creating wishlist is you can access your products or deals at any time. Even when the shopping site goes down you will hold an access to visit the product by using the wishlist. </p>
+        <br>
+        <img src="dd"></img>
+        <br>
+        <p>PS: You can also continue without adding the products to the wishlist. We created the wishlist for a quick access and it's not mandatory.</p>
+
+        ]]>
+    </string>
+</resources>

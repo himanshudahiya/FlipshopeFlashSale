@@ -1,0 +1,14 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <org.sufficientlysecure.htmltextview.HtmlTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is about us!!"
+        android:id="@+id/how_to_use"
+        android:padding="10dp"
+        android:textColor="#000"
+        />
+</RelativeLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WelcomeActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="12dp"
+        android:id="@+id/box"
+        android:background="@drawable/curved_border_relative"
+        android:padding="8dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verify your email address"
+        android:textColor="#000"
+        android:textSize="25sp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/labelA"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thanks for signing in with us.\nPlease check your email to verify your email address with us!!"
+        android:textColor="#9f9f9f"
+        android:textSize="15sp"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:id="@+id/labelB"
+        android:layout_below="@+id/labelA"
+        android:layout_marginTop="10dp"/>
+    </RelativeLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Continue"
+        android:textAllCaps="false"
+        android:id="@+id/continueHome"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_buy_button"
+        android:layout_below="@+id/box"/>
+</RelativeLayout>

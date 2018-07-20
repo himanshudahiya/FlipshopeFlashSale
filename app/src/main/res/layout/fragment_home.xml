@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ScrollView
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WebsiteProducts">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/selected_products"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/PrimaryButton"
+            android:text="Select More"
+            android:textAllCaps="false"
+            android:padding="8dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/selected_products"
+            android:visibility="gone"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/select_more_products"/>
+    </RelativeLayout>
+</ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/noProductBox"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/dashed_box">
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Oops!! No product selected. Click to select some."
+            android:padding="20dp"
+            android:textSize="17sp"
+            android:textColor="#686868"
+            android:id="@+id/label11"
+            android:textAlignment="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/label11"
+            android:background="@drawable/ic_add_shopping_cart_black_24dp"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

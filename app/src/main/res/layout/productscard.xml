@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/product_card"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/card_task"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/productImage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_margin="4dp"
+            />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/productImage"
+                android:layout_toEndOf="@+id/productImage"
+                >
+            <TextView
+                android:id="@+id/productName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingStart="8dp"
+                android:paddingRight="8dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="5dp"
+                android:textColor="#000"
+                android:text="Development all and that stuff ghbolj89k "
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                android:layout_toLeftOf="@+id/addToCart"
+                android:layout_toStartOf="@+id/addToCart"
+                android:layout_alignParentTop="true"
+                 />
+            <TextView
+                android:id="@+id/productPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textColor="@color/cardview_dark_background"
+                android:text="15000"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/productName"
+                />
+
+                <Button
+                    android:id="@+id/addToCart"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:paddingLeft="8dp"
+                    android:paddingStart="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingEnd="8dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/d"
+                    android:layout_alignParentTop="true"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/removeFromCart"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/e"
+                    android:paddingEnd="8dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingStart="8dp"
+                    android:text="" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buy Now"
+                android:id="@+id/buyNowButton"
+                android:layout_alignParentBottom="true"
+                android:textAllCaps="false"
+                android:layout_marginRight="5dp"
+                android:theme="@style/PrimaryFlatButton"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginEnd="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+
+                <TextView
+                    android:id="@+id/sale_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:textColor="@color/cardview_dark_background"
+                    android:text="4/02/3201"
+                    android:textSize="13sp"
+
+                    android:textStyle="normal"
+                    android:layout_toLeftOf="@+id/buyNowButton"
+                    android:layout_toStartOf="@+id/buyNowButton"
+                    android:typeface="sans"
+                    android:layout_marginTop="5dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/productPrice" />
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="#D3D3D3"
+                />
+        </RelativeLayout>
+
+
+</RelativeLayout>

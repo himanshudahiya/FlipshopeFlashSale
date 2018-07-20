@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".ForgotPassMobile">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter your registerd mobile number"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="80dp"
+        android:id="@+id/enterNumLabel"
+        />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enterNumLabel"
+        android:layout_marginTop="30dp"
+        android:textColor="#fff"
+        android:hint="Enter Mobile Number"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/mobileNoPass"
+        android:theme="@style/EditTextTheme"
+        android:padding="10dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mobileNoPass"
+        android:layout_centerHorizontal="true"
+        android:text="Send OTP"
+        android:textAllCaps="false"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:id="@+id/sendOTPResButton"
+        android:background="@android:color/transparent"/>
+</RelativeLayout>

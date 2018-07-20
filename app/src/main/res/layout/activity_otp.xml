@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".OTPActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter OTP"
+        android:id="@+id/enterOTPLabel"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please enter the One Time Password received at your provided mobile number"
+        android:id="@+id/enterLabel"
+        android:textSize="13sp"
+        android:layout_below="@+id/enterOTPLabel"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:padding="10dp"/>
+    <com.mukesh.OtpView
+        android:id="@+id/otp_view"
+        android:layout_below="@+id/enterLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:theme="@style/EditTextTheme"
+
+        android:textColor="#fff"
+        android:layout_centerHorizontal="true"
+        app:length="4"
+        >
+    </com.mukesh.OtpView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Did not receive a code?"
+        android:id="@+id/notReceivedLabel"
+        android:textAlignment="center"
+        android:textSize="15sp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/otp_view"
+        android:layout_centerHorizontal="true"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/notReceivedLabel"
+        android:id="@+id/resendbuttons"
+        android:layout_centerHorizontal="true">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resend OTP"
+        android:id="@+id/notReceivedButton"
+        android:textAlignment="center"
+        android:textColor="#dbb562"
+        android:textSize="15sp"
+
+        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change Number"
+            android:id="@+id/changeNumberButton"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textColor="#3a5cd8"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="a:b"
+        android:id="@+id/timer"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:padding="10dp"
+        android:layout_below="@+id/resendbuttons"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
