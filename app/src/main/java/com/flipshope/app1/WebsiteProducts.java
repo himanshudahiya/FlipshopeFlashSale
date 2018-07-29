@@ -61,7 +61,7 @@ public class WebsiteProducts extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_websites_products);
-        mContext = getApplicationContext();
+        mContext = this;
         selectedWebsite = getIntent().getStringExtra("SelectedWebsite");
 
         final ViewGroup actionBarLayout = (ViewGroup) getLayoutInflater().inflate(

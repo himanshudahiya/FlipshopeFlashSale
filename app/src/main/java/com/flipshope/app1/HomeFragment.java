@@ -109,24 +109,6 @@ public class HomeFragment extends Fragment {
 
         dba =new DBHandler(getActivity(),null,null,DATABASE_VERSION);
         selectedProducts = dba.returnAddedProducts();
-//        if(isFirstLaunch){
-//            if (dba.returnProducts().size() == 0){
-//
-////                new FirstTimeLogin().execute("");
-//            }
-//            else {
-//                products2 = dba.returnProducts();
-////                new OnDBUpdate().execute("");
-//            }
-////            isFirstLaunch = false;
-////            SharedPreferences.Editor prefsEditr = prefs.edit();
-////            prefsEditr.putBoolean("isFirstLaunch", false);
-////            prefsEditr.apply();
-//        }
-//        else{
-////            products2 = dba.returnProducts();
-//        }
-//        selectedProducts = dba.returnSelectedProducts();
         if(selectedProducts.size()!=0){
             mRecyclerView.setVisibility(View.VISIBLE);
             noProductBox.setVisibility(View.GONE);
@@ -140,53 +122,38 @@ public class HomeFragment extends Fragment {
         }
 
         url = "http://139.59.86.66:65123/fetchWebsites";
-        sendRequest();
 
         noProductBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sendRequest();
 
-                System.out.println("send req executed");
-                final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                System.out.println(arrayWebsites);
-                final String[] arrayWebsitesnew = new String[arrayWebsites.size()];
-                System.out.println("no product box clicked");
-                arrayWebsites.toArray(arrayWebsitesnew);
-//                System.out.println(arrayWebsites + "     " + arrayWebsitesnew[0]);
-                builder.setTitle("Select a website")
-                        .setItems(arrayWebsitesnew, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                // The 'which' argument contains the index position
-                                // of the selected item
-                                // call api for products
-
-                                Intent intent = new Intent(getActivity(), WebsiteProducts.class);
-                                intent.putExtra("SelectedWebsite", arrayWebsitesnew[which]);
-                                startActivity(intent);
-//                                getActivity().finish();
-                            }
-
-
-                        });
-                AlertDialog dialog = builder.create();
-                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(Color.BLACK);
-                String titleText = "Select a website";
-
-                // Initialize a new spannable string builder instance
-                SpannableStringBuilder ssBuilder = new SpannableStringBuilder(titleText);
-
-                // Apply the text color span
-                ssBuilder.setSpan(
-                        foregroundColorSpan,
-                        0,
-                        titleText.length(),
-                        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-                );
-
-                // Set the alert dialog title using spannable string builder
-                dialog.setTitle(ssBuilder);
-                dialog.show();
+//                final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//
+//                builder.setTitle("Select a website")
+//                        .setItems(arrayWebsitesnew, new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                Intent intent = new Intent(getActivity(), WebsiteProducts.class);
+//                                intent.putExtra("SelectedWebsite", arrayWebsitesnew[which]);
+//                                startActivity(intent);
+////                                getActivity().finish();
+//                            }
+//
+//
+//                        });
+//                AlertDialog dialog = builder.create();
+//                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(Color.BLACK);
+//                String titleText = "Select a website";
+//                SpannableStringBuilder ssBuilder = new SpannableStringBuilder(titleText);
+//
+//                ssBuilder.setSpan(
+//                        foregroundColorSpan,
+//                        0,
+//                        titleText.length(),
+//                        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+//                );
+//                dialog.setTitle(ssBuilder);
+//                dialog.show();
             }
         });
 
@@ -194,44 +161,44 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 sendRequest();
-                final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                System.out.println(arrayWebsites);
-                final String[] arrayWebsitesnew = new String[arrayWebsites.size()];
-                arrayWebsites.toArray(arrayWebsitesnew);
-//                System.out.println(arrayWebsites + "     " + arrayWebsitesnew[0]);
-                builder.setTitle("Select a website")
-                        .setItems(arrayWebsitesnew, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                // The 'which' argument contains the index position
-                                // of the selected item
-                                // call api for products
+//                 final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//                 System.out.println(arrayWebsites);
+//                 final String[] arrayWebsitesnew = new String[arrayWebsites.size()];
+//                 arrayWebsites.toArray(arrayWebsitesnew);
+// //                System.out.println(arrayWebsites + "     " + arrayWebsitesnew[0]);
+//                 builder.setTitle("Select a website")
+//                         .setItems(arrayWebsitesnew, new DialogInterface.OnClickListener() {
+//                             public void onClick(DialogInterface dialog, int which) {
+//                                 // The 'which' argument contains the index position
+//                                 // of the selected item
+//                                 // call api for products
 
-                                Intent intent = new Intent(getActivity(), WebsiteProducts.class);
-                                intent.putExtra("SelectedWebsite", arrayWebsitesnew[which]);
-                                startActivity(intent);
-//                                getActivity().finish();
-                            }
+//                                 Intent intent = new Intent(getActivity(), WebsiteProducts.class);
+//                                 intent.putExtra("SelectedWebsite", arrayWebsitesnew[which]);
+//                                 startActivity(intent);
+// //                                getActivity().finish();
+//                             }
 
 
-                        });
-                AlertDialog dialog = builder.create();
-                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(Color.BLACK);
-                String titleText = "Select a website";
+//                         });
+//                 AlertDialog dialog = builder.create();
+//                 ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(Color.BLACK);
+//                 String titleText = "Select a website";
 
-                // Initialize a new spannable string builder instance
-                SpannableStringBuilder ssBuilder = new SpannableStringBuilder(titleText);
+//                 // Initialize a new spannable string builder instance
+//                 SpannableStringBuilder ssBuilder = new SpannableStringBuilder(titleText);
 
-                // Apply the text color span
-                ssBuilder.setSpan(
-                        foregroundColorSpan,
-                        0,
-                        titleText.length(),
-                        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-                );
+//                 // Apply the text color span
+//                 ssBuilder.setSpan(
+//                         foregroundColorSpan,
+//                         0,
+//                         titleText.length(),
+//                         Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+//                 );
 
-                // Set the alert dialog title using spannable string builder
-                dialog.setTitle(ssBuilder);
-                dialog.show();
+//                 // Set the alert dialog title using spannable string builder
+//                 dialog.setTitle(ssBuilder);
+//                 dialog.show();
             }
         });
         mAdapter = new ProductsRecyclerAdapter(mContext, selectedProducts, "home", "", myView);
@@ -259,6 +226,10 @@ public class HomeFragment extends Fragment {
                         JSONObject sitename = parentObject.getJSONObject(i);
                         count = 0;
                         arrayWebsites.add(sitename.getString("site_name"));
+                        final String[] arrayWebsitesnew = new String[arrayWebsites.size()];
+                        arrayWebsites.toArray(arrayWebsitesnew);
+                        CustomDialog cdd=new CustomDialog(getActivity(), arrayWebsitesnew);
+                        cdd.show();
                     }
                     System.out.println("arraywebsites = " + arrayWebsites);
                     /* Here 'response' is a String containing the response you received from the website... */

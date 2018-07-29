@@ -31,6 +31,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.w3c.dom.Text;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 public class ProductVarients extends AppCompatActivity {
@@ -52,7 +53,7 @@ public class ProductVarients extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_websites_products);
-        mContext = getApplicationContext();
+        mContext = this;
 
 
         final ViewGroup actionBarLayout = (ViewGroup) getLayoutInflater().inflate(
@@ -103,6 +104,7 @@ public class ProductVarients extends AppCompatActivity {
 //        else{
 //
 //        }
+        System.out.println("selectedWebsite + selectedProduct" + selectedProduct + " " + selectedWebsite);
         sendRequest();
         mAdapter = new ProductsRecyclerAdapter(mContext, productsList, "varients", selectedWebsite, null);
         recyclerView.setAdapter(mAdapter);
@@ -114,9 +116,15 @@ public class ProductVarients extends AppCompatActivity {
         if (mRequestQueue== null) {
             mRequestQueue = Volley.newRequestQueue(this);
         }
-        url = "http://139.59.86.66:65123/fetchvariants?website=" + selectedWebsite + "&&pname=" + selectedProduct;
+        String query = "";
+        try {
+            query = URLEncoder.encode(selectedProduct, "utf-8");
+        }catch (Exception e){
+            query = selectedProduct;
+        }
+        url = "http://139.59.86.66:65123/fetchvariants?website=" + selectedWebsite + "&pname=" + query;
         progressBar.setVisibility(View.VISIBLE);
-
+System.out.println("url = " + url);
         mStringRequest = new StringRequest(Request.Method.GET, url,new Response.Listener<String>(){
             @Override
             public void onResponse(String response){
@@ -167,15 +175,17 @@ System.out.println("product = " + productsList.get(0).getProductName());
                     e.printStackTrace();
                     count++;
                     sendRequest();
-
+                    System.out.println("count1 = " + count);
                     progressBar.setVisibility(View.GONE);
                     }
             }
         }, new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error){
+                System.out.println(error);
                 progressBar.setVisibility(View.GONE);
                 count++;
+                System.out.println("count = " + count);
                 sendRequest();
             }
         });

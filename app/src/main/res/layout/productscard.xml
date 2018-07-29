@@ -18,7 +18,8 @@
             />
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="match_parent"
+                android:padding="5dp"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/productImage"
                 android:layout_toEndOf="@+id/productImage"
@@ -37,8 +38,8 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:typeface="sans"
-                android:layout_toLeftOf="@+id/addToCart"
-                android:layout_toStartOf="@+id/addToCart"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
                 android:layout_alignParentTop="true"
                  />
             <TextView
@@ -117,6 +118,7 @@
                     android:typeface="sans"
                     android:layout_marginTop="5dp"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
                     android:layout_below="@+id/productPrice" />
             </RelativeLayout>
             <View

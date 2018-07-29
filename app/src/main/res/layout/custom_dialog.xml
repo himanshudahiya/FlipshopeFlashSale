@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rel_lay"
+        android:background="#e31c1f32"
+        android:orientation="horizontal">
+    <Button
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/close"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="5dp"
+        android:background="@drawable/ic_clear_black_24dp"/>
+    <TextView
+        android:id="@+id/txt_dia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:text="Select a website"
+        android:textColor="@android:color/white"
+        android:textSize="15dp" />
+        <Button
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:id="@+id/check"
+            android:layout_margin="5dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/ic_check_black_24dp"/>
+    </RelativeLayout>
+
+    <com.synnapps.carouselview.CarouselView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:fillColor="#FFFFFFFF"
+        app:pageColor="#00000000"
+        android:id="@+id/carouselView1"
+        app:radius="6dp"
+        app:strokeColor="#FF777777"
+        app:autoPlay="false"
+        app:strokeWidth="1dp"
+        android:layout_below="@+id/rel_lay"
+        android:layout_centerInParent="true"
+        app:indicatorVisibility="visible"
+        app:animateOnBoundary="true"
+        >
+    </com.synnapps.carouselview.CarouselView>
+</RelativeLayout>
