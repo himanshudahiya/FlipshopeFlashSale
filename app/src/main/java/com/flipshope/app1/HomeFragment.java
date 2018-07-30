@@ -399,4 +399,5 @@ public class HomeFragment extends Fragment {
         mRecyclerView.setAdapter(mAdapter);
         //Refresh your stuff here
     }
+
 }

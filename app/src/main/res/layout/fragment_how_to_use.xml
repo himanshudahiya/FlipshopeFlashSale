@@ -3,12 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <org.sufficientlysecure.htmltextview.HtmlTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="This is about us!!"
+
+
+
+    <com.github.barteksc.pdfviewer.PDFView
         android:id="@+id/how_to_use"
-        android:padding="10dp"
-        android:textColor="#000"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </RelativeLayout>

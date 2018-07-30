@@ -8,6 +8,8 @@
         android:layout_height="wrap_content"
         android:text="This is about us!!"
         android:id="@+id/aboutUs"
+        android:fontFamily="@font/neotechmedium"
+        app:fontFamily="@font/neotechmedium"
         android:padding="10dp"
         android:textColor="#000"
         />

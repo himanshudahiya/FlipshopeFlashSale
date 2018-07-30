@@ -4,9 +4,18 @@
     android:layout_height="match_parent"
     >
 
-    <com.github.barteksc.pdfviewer.PDFView
-        android:id="@+id/pdfView"
-        android:layout_width="match_parent"
-        android:background="#000"
-        android:layout_height="match_parent"/>
+
+    <org.sufficientlysecure.htmltextview.HtmlTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is about us!!"
+        android:id="@+id/faq"
+        android:padding="10dp"
+        android:textColor="#000"
+        android:fontFamily="@font/neotechmedium"
+        app:fontFamily="@font/neotechmedium"
+        />
+
+
+
 </RelativeLayout>

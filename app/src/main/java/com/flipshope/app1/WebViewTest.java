@@ -17,6 +17,7 @@ import android.widget.Button;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLEncoder;
 import java.nio.charset.Charset;
 
 
@@ -40,8 +41,17 @@ public class WebViewTest extends AppCompatActivity {
         name = extras.getString("name");
         sale_date = extras.getString("sale_date");
         cookie = extras.getString("cookie");
-        System.out.println("url = " + URL);
         URL = "https://" + URL;
+
+        String query;
+        try {
+            query = URLEncoder.encode(name, "utf-8");
+        }catch (Exception e){
+            query = name;
+        }
+//URL = "https://www.flipkart.com/"+query+"/p/asdasdasdasfds?pid="+pid;
+        System.out.println("url = " + URL);
+
 //        URL = "https://www.flipkart.com/redmi-note-5-pro-black-64-gb/p/itmf2fc3xgmxnhpx?pid=MOBF28FTQPHUPX83&srno=s_1_3&otracker=search&lid=LSTMOBF28FTQPHUPX83H7IIOZ&fm=SEARCH&iid=1bb38e38-f5b7-46de-9abc-350236399321.MOBF28FTQPHUPX83.SEARCH&ppt=Homepage&ppn=Homepage&ssid=2putu3aog8x064g01528092258104&qH=286b43aac83aafdc";
 //        Pattern MY_PATTERN = Pattern.compile("^p/[a-z0-9]*$");
 //        Matcher m = MY_PATTERN.matcher(URL);

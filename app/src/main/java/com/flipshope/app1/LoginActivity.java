@@ -281,6 +281,8 @@ public class LoginActivity extends AppCompatActivity {
                 token = null;
                 imageView.setVisibility(View.GONE);
                 scrollView.setVisibility(View.VISIBLE);
+                getWindow().setBackgroundDrawableResource(R.color.white);
+
                 LoginManager.getInstance().logOut();
                 GoogleSignInClient mGoogleSignInClient;
                 GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -334,6 +336,8 @@ public class LoginActivity extends AppCompatActivity {
                         mGoogleSignInClient.signOut();
                         imageView.setVisibility(View.GONE);
                         scrollView.setVisibility(View.VISIBLE);
+                        getWindow().setBackgroundDrawableResource(R.color.white);
+
                         getSupportActionBar().show();
                     }
                     /* Here 'response' is a String containing the response you received from the website... */
@@ -364,6 +368,8 @@ public class LoginActivity extends AppCompatActivity {
                 mGoogleSignInClient.signOut();
                 imageView.setVisibility(View.GONE);
                 scrollView.setVisibility(View.VISIBLE);
+                getWindow().setBackgroundDrawableResource(R.color.white);
+
                 getSupportActionBar().show();
 
             }

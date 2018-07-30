@@ -116,7 +116,7 @@ public class ProductVarients extends AppCompatActivity {
         if (mRequestQueue== null) {
             mRequestQueue = Volley.newRequestQueue(this);
         }
-        String query = "";
+        String query;
         try {
             query = URLEncoder.encode(selectedProduct, "utf-8");
         }catch (Exception e){
