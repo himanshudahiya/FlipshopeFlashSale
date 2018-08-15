@@ -35,6 +35,8 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
     private String mUsername;
@@ -50,7 +52,11 @@ public class RegisterActivity extends AppCompatActivity {
     private Button register;
     private String url;
     private RequestQueue mRequestQueue;
-
+    Boolean usernameSet = true;
+    Boolean emailSet = true;
+    Boolean mobileSet = true;
+    Boolean passwordSet = false;
+    private String mobileNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
             email.setText(mEmail);
             password.setVisibility(View.GONE);
             password.setText("");
+            passwordSet = true;
             email.setInputType(InputType.TYPE_NULL);
         }
 
@@ -79,10 +86,8 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // from api
-                Boolean usernameSet = true;
-                Boolean emailSet = true;
-                Boolean mobileSet = true;
-                Boolean passwordSet = true;
+
+
                 if (username.getText().toString().equals("")){
                     username.setError("Please Enter Name");
                     usernameSet = false;
@@ -95,9 +100,33 @@ public class RegisterActivity extends AppCompatActivity {
                     mobile.setError("Please Enter Mobile");
                     mobileSet = false;
                 }
-                if (usernameSet && emailSet && mobileSet){
+                if(!passwordSet || password.getText().toString().trim().length()<6){
+                    Toast.makeText(RegisterActivity.this, "Password must of atleast 6 characters!!", Toast.LENGTH_LONG).show();
+                }
+                else if(!passwordSet && password.getText().toString().trim().length()>=6){
+                    passwordSet = true;
+                }
+                if (usernameSet && emailSet && mobileSet && passwordSet){
+                    mobileNumber = mobile.getText().toString().trim();
+                    if(mobileNumber.length()<10 || mobileNumber.length()>13){
+                        Toast.makeText(RegisterActivity.this, "Enter a valid mobile number!!", Toast.LENGTH_LONG).show();
+                    }
+                    else if(mobileNumber.length()==11 || mobileNumber.length()==12){
+                        Toast.makeText(RegisterActivity.this, "Enter a valid mobile number!!", Toast.LENGTH_LONG).show();
+                    }
+                    else if(mobileNumber.length() == 13) {
+                        mobileNumber = mobileNumber.substring(3);
+                    }
 
-                    checkForUser(email.getText().toString());
+                    final Pattern VALID_EMAIL_ADDRESS_REGEX =
+                            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+                    Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email.getText().toString().trim().toLowerCase());
+                    if(matcher.find()) {
+                        checkForUser(email.getText().toString().trim().toLowerCase());
+                    }
+                    else{
+                        Toast.makeText(RegisterActivity.this, "Enter a valid email address!!", Toast.LENGTH_SHORT).show();
+                    }
 //                    sendRequest();
 
                 }
@@ -111,11 +140,10 @@ public class RegisterActivity extends AppCompatActivity {
         url = "http://139.59.86.66:4000/api/auth/register";
         mRequestQueue = Volley.newRequestQueue(this);
         HashMap<String, String> params = new HashMap<String, String>();
-        params.put("email", email.getText().toString());
-        params.put("name", username.getText().toString());
-        params.put("password", password.getText().toString());
-        params.put("number", mobile.getText().toString());
-System.out.println("password =" + password.getText().toString());
+        params.put("email", email.getText().toString().trim().toLowerCase());
+        params.put("name", username.getText().toString().trim());
+        params.put("password", password.getText().toString().trim());
+        params.put("number", mobile.getText().toString().trim());
         JsonObjectRequest req = new JsonObjectRequest(url, new JSONObject(
                 params), new Response.Listener<JSONObject>() {
             @Override
@@ -186,7 +214,7 @@ System.out.println("email + number = " + email + " " + mobile);
             @Override
             public void onErrorResponse(VolleyError error){
                 System.out.println("error111 = " + error);
-                checkForUserMobile(mobile.getText().toString());
+                checkForUserMobile(mobileNumber);
             }
         });
         mRequestQueue.add(mStringRequest);

@@ -28,8 +28,20 @@ public class ForgotPassMobile extends AppCompatActivity {
         sendOTP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String number = mobileNoRes.getText().toString();
-                checkForUserMobile(number);
+                String number = mobileNoRes.getText().toString().trim();
+                if(number.length()<10 || number.length()>13){
+                    Toast.makeText(ForgotPassMobile.this, "Enter a valid mobile number!!", Toast.LENGTH_LONG).show();
+                }
+                else if(number.length()==11 || number.length()==12){
+                    Toast.makeText(ForgotPassMobile.this, "Enter a valid mobile number!!", Toast.LENGTH_LONG).show();
+                }
+                else if(number.length() == 10) {
+                    checkForUserMobile(number);
+                }
+                else{
+                    number = number.substring(3);
+                    checkForUserMobile(number);
+                }
             }
         });
 

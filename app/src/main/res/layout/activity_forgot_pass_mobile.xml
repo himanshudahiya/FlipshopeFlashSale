@@ -29,6 +29,7 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/mobileNoPass"
         android:theme="@style/EditTextTheme"
+        android:inputType="phone"
         android:padding="10dp" />
 
     <Button

@@ -43,11 +43,16 @@ public class NewPassEnter extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if((enterPass.getText().toString()).equals(rEnterPass.getText().toString())){
-                    resetPassword(id, enterPass.getText().toString(), number);
+                if((enterPass.getText().toString().trim()).equals(rEnterPass.getText().toString().trim())){
+                    if(enterPass.getText().toString().trim().length()<6){
+                        Toast.makeText(NewPassEnter.this, "Password should be of minimum 6 characters!!", Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        resetPassword(id, enterPass.getText().toString().trim(), number);
+                    }
                 }
                 else{
-                    Toast.makeText(NewPassEnter.this, "", Toast.LENGTH_LONG).show();
+                    Toast.makeText(NewPassEnter.this, "Password and Re-Enter password do not match!!", Toast.LENGTH_LONG).show();
 
                 }
             }

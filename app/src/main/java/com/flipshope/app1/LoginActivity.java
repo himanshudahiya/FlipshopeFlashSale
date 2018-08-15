@@ -70,6 +70,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -139,8 +141,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 Boolean usernameSet = true;
                 Boolean passwordSet = true;
-                mUsername = mUsernameView.getText().toString();
-                mPassword = mPasswordView.getText().toString();
+                mUsername = mUsernameView.getText().toString().trim();
+                mPassword = mPasswordView.getText().toString().trim();
                 if (mUsername.equals("")){
                     mUsernameView.setError("Please Enter Email");
                     usernameSet = false;
@@ -150,8 +152,16 @@ public class LoginActivity extends AppCompatActivity {
                     passwordSet = false;
                 }
                 if (usernameSet && passwordSet) {
-                    loaderLogin.setVisibility(View.VISIBLE);
-                    sendRequest();
+                    final Pattern VALID_EMAIL_ADDRESS_REGEX =
+                            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+                    Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(mUsername.toLowerCase());
+                    if(matcher.find()) {
+                        loaderLogin.setVisibility(View.VISIBLE);
+                        sendRequest();
+                    }
+                    else{
+                        Toast.makeText(LoginActivity.this, "Enter a valid email address!!", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
             }
@@ -492,7 +502,7 @@ public class LoginActivity extends AppCompatActivity {
         loaderLogin.setVisibility(View.VISIBLE);
         mRequestQueue = Volley.newRequestQueue(this);
         HashMap<String, String> params = new HashMap<String, String>();
-        params.put("email", mUsername);
+        params.put("email", mUsername.toLowerCase());
         params.put("password", mPassword);
         System.out.println("username = " + mUsername + "password = " + mPassword);
 

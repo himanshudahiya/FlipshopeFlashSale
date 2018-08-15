@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +51,7 @@ public class AccountFragment extends Fragment {
     private TextView mPassword;
     View view;
     private Boolean isSite;
+    private TextView verifyEmailButton;
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -70,6 +72,7 @@ public class AccountFragment extends Fragment {
         mEmail = myView.findViewById(R.id.email_acc);
         mMobileNumber = myView.findViewById(R.id.mobileNo_acc);
         mPassword = myView.findViewById(R.id.acc_password);
+        verifyEmailButton = myView.findViewById(R.id.verifyEmailButton);
         if(isSite){
             mPassword.setVisibility(View.GONE);
         }
@@ -101,6 +104,7 @@ public class AccountFragment extends Fragment {
             Drawable imgLeft = getContext().getResources().getDrawable(R.drawable.ic_email_black_24dp);
             imgLeft.setBounds( 0, 0, 60, 60 );
             mEmail.setCompoundDrawables(imgLeft, null, imgRight , null);
+            verifyEmailButton.setVisibility(View.VISIBLE);
         }
         else if(isEmailVerified){
             Drawable imgRight = getContext().getResources().getDrawable( R.drawable.ic_checked );
@@ -108,6 +112,10 @@ public class AccountFragment extends Fragment {
             Drawable imgLeft = getContext().getResources().getDrawable(R.drawable.ic_email_black_24dp);
             imgLeft.setBounds( 0, 0, 60, 60 );
             mEmail.setCompoundDrawables(imgLeft, null, imgRight , null);
+            verifyEmailButton.setVisibility(View.GONE);
+            RelativeLayout.LayoutParams params= new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+            params.addRule(RelativeLayout.BELOW, R.id.email_acc);
+            mMobileNumber.setLayoutParams(params);
         }
         if(!isNumVerified){
             Drawable imgRight = getContext().getResources().getDrawable( R.drawable.ic_error );
@@ -182,6 +190,13 @@ public class AccountFragment extends Fragment {
             }
         });
 
+        verifyEmailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         mPassword.setOnTouchListener(new View.OnTouchListener() {
 
             @Override
@@ -209,7 +224,7 @@ public class AccountFragment extends Fragment {
     private void sendRequest() {
         RequestQueue queue = Volley.newRequestQueue(getContext());
         String url = "http://139.59.86.66:4000/api/users/update?id=" + id;
-        name = userInput.getText().toString();
+        name = userInput.getText().toString().trim();
         StringRequest sr = new StringRequest(Request.Method.POST,url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

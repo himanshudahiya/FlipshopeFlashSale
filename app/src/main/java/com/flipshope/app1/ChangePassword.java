@@ -39,8 +39,13 @@ public class ChangePassword extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(newPass.getText().toString().equals(reNewPass.getText().toString())) {
-                    changePassword(email, oldPass.getText().toString(), newPass.getText().toString());
+                if(newPass.getText().toString().trim().equals(reNewPass.getText().toString().trim())) {
+                    String newPasstrinned = newPass.getText().toString().trim();
+                    if (newPasstrinned.length() < 6) {
+                        Toast.makeText(ChangePassword.this, "Password should be of minimum 6 characters!!", Toast.LENGTH_LONG).show();
+                    } else {
+                        changePassword(email, oldPass.getText().toString().trim(), newPass.getText().toString().trim());
+                    }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "New Password and re-enter new password do not match!!", Toast.LENGTH_SHORT).show();
